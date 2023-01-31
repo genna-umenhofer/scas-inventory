@@ -2,21 +2,15 @@
   session_start();
   include_once 'dbc.php';
 
-  //get the SKU from the form
-  $sku = $_POST['sku-to-get'];
-
+  //get the SKU from AJAX request
+  $sku = $_POST['sku'];
+  
   //query the database for the item with matching SKU
   $sql = "SELECT * FROM inventory WHERE sku='$sku'";
   $result = mysqli_query($conn, $sql);
-  
-  if (mysqli_num_rows($result) > 0) {
-    $row = mysqli_fetch_assoc($result);
-    $name = $row['name'];
 
-  } else {
-    echo "No results found matching that SKU.";
-  }
+  //fetch the first row of data from the query
+  $item = $result->fetch_assoc();
 
-  mysqli_close($conn);
-
- 
+  //return data as JSON
+  echo json_encode($item);

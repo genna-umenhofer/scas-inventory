@@ -1,6 +1,3 @@
-// log-in functionality
-
-
 // inventory search functionality
 function searchFunctionSKU() {
   let input = document.getElementById("searchInventoryInputSKU");
@@ -61,21 +58,65 @@ function searchFunctionCategory() {
     }
   }
 }
-
 // end inventory search functionality
 
 // Display and hide inventory window popup
-//document.getElementById("view-button").addEventListener("click", displayProduct);
-
 function toggleDisplayProduct(id) {
   let card = document.getElementById(id);
 
   if (card.style.display != "none") {
     card.style.display = "none";
-    console.log("I ran");
   } else {
     card.style.display = "flex";
-    console.log("I ran, too!");
+    //call view, edit, or delete AJAX requests
+    if (id === "view-card") {
+      viewItemAjax();
+    } else if (id === "edit-card") {
+      //editItemAjax();
+    } else if (id === "delete-card") {
+      //deleteItemAjax();
+    }
   }
+}
+
+function viewItemAjax() {
+  //get the SKU from the document
+  let skuToView = document.getElementById("sku-to-get").value;
   
+  //AJAX Request to retrieve the data
+  let xhr = new XMLHttpRequest();
+  xhr.open("POST", "includes/viewinventory.php", true);
+  xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded")
+  
+  xhr.onreadystatechange = function () {
+    if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
+      //Process the request
+      let data = JSON.parse(this.responseText);
+      //Set the HTML based on item data
+      processItemData(data);
+    }
+  }
+
+  //send the request to the database
+  xhr.send('sku=' + skuToView);
+}
+
+function processItemData(data) {
+  let jsonData = data;
+
+  //Get specific DOM element
+  let name = document.getElementById("view-item-name");
+  let description = document.getElementById("view-item-description");
+  let price = document.getElementById("view-item-price");
+  let quantity = document.getElementById("view-item-qty");
+  let weight = document.getElementById("view-item-weight");
+  let category = document.getElementById("view-item-category");
+
+  //Assign JSON text to DOM element
+  name.innerText = jsonData["name"];
+  description.innerText = jsonData["description"];
+  price.innerText = jsonData["price"];
+  quantity.innerText = jsonData["quantity"];
+  weight.innerText = jsonData["weight"];
+  category.innerText = jsonData["category"];
 }

@@ -64,7 +64,7 @@
           </select>
         </div>
         <div>
-          <label for="date">Date Added:</label>
+          <label for="date">Date:</label>
           <input type="date" name="date-added">
         </div>
       </div>
@@ -99,7 +99,7 @@
     </div> -->
 
     <div class="inventory-form-mini">
-      <form action="includes/viewinventory.php" method="POST">
+      <form>
         <h2>View, Edit, or Delete Item</h2>
         <label for="sku-to-get">SKU:</label>
         <input type="text" name="sku-to-get" id="sku-to-get">
@@ -120,25 +120,25 @@
     <h2>View Inventory Item</h2>
       <div>
         <h3>Name: </h3>
-        <p>Lorem Ipsum</p>
+        <p id="view-item-name">Lorem Ipsum</p>
         <h3>Description:</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi odio molestias rem, magni ratione est dignissimos pariatur sint quae possimus nisi natus qui similique perferendis ab, quia distinctio corporis voluptatem!</p>
-        <div class="container2">
+        <p id="view-item-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi odio molestias rem, magni ratione est dignissimos pariatur sint quae possimus nisi natus qui similique perferendis ab, quia distinctio corporis voluptatem!</p>
+        <div class="container2 extra-gap container5">
           <div>
             <h3>Price:</h3>
-            <p>$0.00</p>
+            <p id="view-item-price">$0.00</p>
           </div>
           <div>
             <h3>Quantity:</h3>
-            <p>15 each</p>
+            <p id="view-item-qty">15 each</p>
           </div>
           <div>
-            <h3>Weight:</h3>
-            <p>1.20 lbs</p>
+            <h3 >Weight:</h3>
+            <p id="view-item-weight">1.20 lbs</p>
           </div>
           <div>
             <h3>Category:</h3>
-            <p>Necklaces</p>
+            <p id="view-item-category">Necklaces</p>
           </div>
         </div><!--
         <div class="container2">
@@ -209,7 +209,7 @@
             </select>
           </div>
           <div>
-            <label for="date">Date Added:</label>
+            <label for="date">Date:</label>
             <input type="date">
           </div>
 
