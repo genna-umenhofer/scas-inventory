@@ -10,11 +10,11 @@
     <form action="includes/addinventory.php" method="POST">
       <h2>Add New Inventory Item</h2>
 
-      <label for="SKU">SKU:</label>
-      <input type="text" name="SKU" id="SKU">
+      <label for="SKU">SKU:*</label>
+      <input type="text" name="SKU" id="SKU" required>
 
-      <label for="product-name">Product Name:</label>
-      <input type="text" name="product-name" id="product-name">
+      <label for="product-name">Product Name:*</label>
+      <input type="text" name="product-name" id="product-name" required>
 
       <label for="product-description">Product Description:</label>
       <textarea name="product-description" id="product-description"></textarea>

@@ -63,7 +63,8 @@ function searchFunctionCategory() {
 // Display and hide inventory window popup
 function toggleDisplayProduct(id) {
   let card = document.getElementById(id);
-
+  let sku = document.getElementById("sku-to-get").value;
+  if (sku) {
   if (card.style.display != "none") {
     card.style.display = "none";
   } else {
@@ -77,6 +78,9 @@ function toggleDisplayProduct(id) {
       //deleteItemAjax();
     }
   }
+} else {
+  alert("Please enter a sku.")
+}
 }
 
 function viewItemAjax() {
