@@ -90,7 +90,7 @@ function viewItemAjax() {
   //AJAX Request to retrieve the data
   let xhr = new XMLHttpRequest();
   xhr.open("POST", "includes/viewinventory.php", true);
-  xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded")
+  xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
   
   xhr.onreadystatechange = function () {
     if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
