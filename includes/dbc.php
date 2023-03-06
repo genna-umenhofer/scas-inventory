@@ -1,11 +1,13 @@
 <?php
 session_start();
+include('.env.php');
+
 
 if ($_SESSION['username'] === 'demo') {
-  $servername = "localhost";
-  $username = "demo";
-  $password = "(FC37w1imHkyOK_z";
-  $databasename = "simply_complex_demo";
+  $servername = $demodbServer;
+  $username = $demodbUser;
+  $password = $demodbPass;
+  $databasename = $demodbName;
   
   // Create Connection
   $conn = mysqli_connect($servername, $username, $password, $databasename);
@@ -16,10 +18,10 @@ if ($_SESSION['username'] === 'demo') {
   }
 
 } else {
-  $servername = "localhost";
-  $username = "simply_complex";
-  $password = "!sVqO][mg8ApXkM/";
-  $databasename = "simply_complex";
+  $servername = $dbServer;
+  $username = $dbUser;
+  $password = $dbpass;
+  $databasename = $dbName;
   
   // Create Connection
   $conn = mysqli_connect($servername, $username, $password, $databasename);
