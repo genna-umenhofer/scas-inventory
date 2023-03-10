@@ -1,6 +1,7 @@
 <?php
   session_start();
   include_once 'dbc.php';
+  include_once '.env.php';
 
   //get the SKU from AJAX request
   $sku = $_POST['sku'];

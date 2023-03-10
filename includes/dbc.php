@@ -14,12 +14,13 @@ if ($_SESSION['username'] === 'demo') {
   
   // Check Connection
   if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+    echo "Failed to connect to MySQL: " . mysqli_connect_error();
+    exit();
   }
 
 } else {
   $servername = $dbServer;
-  $username = $dbUser;
+  $username = $dbUser ;
   $password = $dbpass;
   $databasename = $dbName;
   
@@ -28,7 +29,8 @@ if ($_SESSION['username'] === 'demo') {
   
   // Check Connection
   if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+    echo "Failed to connect to MySQL: " . mysqli_connect_error();
+    exit();
   }
 }
 
