@@ -11,10 +11,11 @@ $username = $_POST["uid"];
 $password = $_POST["pwd"];
 
 if ($username != '' && $password != '') {
-  $sql = "SELECT * FROM logins WHERE username='$username' AND password='$password'";
+  $sql = "SELECT * FROM logins WHERE username=$username AND password=$password";
   mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
   $result = mysqli_query($conn, $sql);
   if (!$result) {
+    var_dump($conn);
     echo "Error: Unable to connect to MySQL." . PHP_EOL;
     echo "Debugging errno: " . mysqli_connect_errno() . PHP_EOL;
     echo "Debugging error: " . mysqli_connect_error() . PHP_EOL;

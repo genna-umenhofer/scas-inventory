@@ -2,6 +2,8 @@
 session_start();
 include('.env.php');
 
+$conn;
+
 
 if ($_SESSION['username'] === 'demo') {
   $servername = $demodbServer;
@@ -14,7 +16,8 @@ if ($_SESSION['username'] === 'demo') {
   
   // Check Connection
   if ($conn->connect_error) {
-    echo "Failed to connect to MySQL: " . mysqli_connect_error();
+    echo $_SESSION['username'];
+    echo "Failed to connect to demo MySQL: " . mysqli_connect_error();
     exit();
   }
 
@@ -29,7 +32,8 @@ if ($_SESSION['username'] === 'demo') {
   
   // Check Connection
   if ($conn->connect_error) {
-    echo "Failed to connect to MySQL: " . mysqli_connect_error();
+    echo $_SESSION['username'];
+    echo "Failed to connect to actual MySQL: " . mysqli_connect_error();
     exit();
   }
 }
